@@ -1,0 +1,61 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+intents:
+- greet
+- bookrooms
+- cleanrooms
+- cleannow
+- cleanlater
+- bookhotel
+- bookhoteladv
+- checkintiming
+- checkouttime
+- cancelreservation
+- cancelpolicy
+
+entities:
+- no_of_rooms
+- type_of_rooms
+- hours
+
+slots:
+  no_of_rooms:
+    type: text
+  type_of_rooms:
+    type: text
+  hours:
+    type: text
+
+responses:
+  utter_greet:
+  - text: Hey! I am Bot. I can assist you in  room services. How can I help you?
+  utter_select_type_of_rooms:
+  - text: We have two types of rooms Simple and Deluxe. What type of room would you prefer?
+  utter_confirmation:
+  - text: You have chosen to book {no_of_rooms} {type_of_rooms} rooms.
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot.
+  utter_how_many_rooms:
+  - text: How many rooms would you like to book?
+  utter_ask_clean_time:
+  - text: When should I arrange for cleaning? 
+  utter_clean_now:
+  - text: Sure, I will send someone to your room right away.
+  
+actions:
+- utter_greet
+- utter_goodbye
+- utter_confirmation
+- utter_select_type_of_rooms
+- utter_iamabot
+- utter_how_many_rooms
+- utter_ask_clean_time
+- utter_clean_now
+- validate_timings
+# - get_type_of_rooms
+
+# forms:
+# - ticket_booking_form
