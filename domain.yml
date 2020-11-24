@@ -6,28 +6,32 @@ intents:
 - bookrooms
 - cleanrooms
 - cleannow
-- cleanlater
+- schedulecleantime
 - bookhotel
 - bookhoteladv
 - checkintiming
 - checkouttime
 - cancelreservation
 - cancelpolicy
+- goodbye
+
 
 entities:
 - no_of_rooms
 - type_of_rooms
-- hours
+- cleaning_hours
 
 slots:
   no_of_rooms:
     type: text
   type_of_rooms:
     type: text
-  hours:
+  cleaning_hours:
     type: text
 
 responses:
+  utter_no_rooms:
+  - text: How many rooms do you want to book?
   utter_greet:
   - text: Hey! I am Bot. I can assist you in  room services. How can I help you?
   utter_select_type_of_rooms:
@@ -38,22 +42,25 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot.
-  utter_how_many_rooms:
-  - text: How many rooms would you like to book?
   utter_ask_clean_time:
   - text: When should I arrange for cleaning? 
   utter_clean_now:
   - text: Sure, I will send someone to your room right away.
-  
+  utter_check_in_time:
+  - text: Check in time starts at 4 PM. Minimum check in age is 21. Please contact the reception for early check in requests
+  utter_checkout_time:
+  - text: Check out time is 11 AM. Please contact the reception for late checkout requests.
 actions:
 - utter_greet
 - utter_goodbye
 - utter_confirmation
 - utter_select_type_of_rooms
 - utter_iamabot
-- utter_how_many_rooms
+- how_many_rooms
 - utter_ask_clean_time
 - utter_clean_now
+- utter_check_in_time
+- utter_checkout_time
 - validate_timings
 # - get_type_of_rooms
 

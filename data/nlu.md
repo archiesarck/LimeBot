@@ -19,15 +19,19 @@
 
 ## intent: cleannow
 - Can you send someone right now?
-- Right now
+- I need room cleanin right now
+- right now
 - It is very dirty, so right now
 - Its urgent
 - As soon as possible
 
-## intent: cleanlater
-- Can you send someone after [1](hours)?
-- Can you send someone after [4](hours)?
-- Can you send someone after [5](hours)?
+## intent: schedulecleantime
+- Can you send someone after [1](cleaning_hours) hours?
+- Send someone after [4](cleaning_hours) hours
+- Can you send someone after [5](cleaning_hours) hours?
+- after [3](cleaning_hours) hours
+- Can you send someone after [8](cleaning_hours) hours?
+- after [4](cleaning_hours) hours
 
 ## intent:goodbye
 - bye
@@ -55,12 +59,19 @@
 - I would like to book [1](no_of_rooms) [Simple](type_of_rooms) rooms.
 - I want like to book [4](no_of_rooms) [Simple](type_of_rooms) rooms.
 - PLease book [6](no_of_rooms) [Simple](type_of_rooms) rooms.
+- Can you book [9](no_of_rooms) [Simple](type_of_rooms) rooms?
 
 ## checkintiming
 - What are your check in timings?
+- What is check in timings?
+- check in times?
+- At what time can I check in?
 
 ## checkouttime
 - What are your checkout times?
+- check out times?
+- At what time I can check out?
+- I want to check out
 
 ## cancelreservation
 - I want to cancel my reservation

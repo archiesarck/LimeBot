@@ -39,12 +39,9 @@ import datetime
 
 # no_of_rooms = 0
 
+
 class ValidateTimings(Action):
-    """This action class allows to display buttons for Show timings to choose."""
-
     def name(self) -> Text:
-        """Unique identifier of the action"""
-
         return "validate_timings"
 
     def run(self,
@@ -52,7 +49,7 @@ class ValidateTimings(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List:
 
-        hours = tracker.get_slot("hours")
+        hours = tracker.get_slot("cleaning_hours")
         current_date_and_time = datetime.datetime.now()
         hours_added = datetime.timedelta(hours = hours)
         future_date_and_time = current_date_and_time + hours_added
@@ -63,4 +60,27 @@ class ValidateTimings(Action):
             msg = "I will arrange a cleaning at " + hrs + " hrs today."
         # TODO: update rasa core version for configurable `button_type`
         dispatcher.utter_message(text=msg)
+        return []
+
+
+class HowManyRooms(Action):
+    def name(self) -> Text:
+        return "how_many_rooms"
+
+    def run(self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List:
+
+        buttons = []
+        types = ["Simple", "Deluxe"]
+        for t in types:
+            payload = "/bookhotel{\"type_of_rooms\": \"" + t + "\"}"
+
+            buttons.append(
+                {"title": "{}".format(t),
+                 "payload": payload})
+        
+        # TODO: update rasa core version for configurable `button_type`
+        dispatcher.utter_button_template("utter_select_type_of_rooms", buttons, tracker)
         return []
